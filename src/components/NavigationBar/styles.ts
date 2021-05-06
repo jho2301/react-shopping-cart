@@ -20,7 +20,7 @@ export const NavigationBarInnerContainer = styled.div`
 
 export const Logo = styled.div`
   display: flex;
-  color: ${PALETTE.WHITE[900]};
+  color: white;
   font-size: 1rem;
   justify-content: space-between;
   align-items: center;
@@ -33,7 +33,7 @@ export const Logo = styled.div`
 
 export const NavLinkContainer = styled.div`
   a {
-    color: ${PALETTE.WHITE[900]};
+    color: white;
     margin-left: 1.5rem;
   }
 `;

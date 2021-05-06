@@ -2,11 +2,12 @@ const PALETTE = {
   BAE_MINT: {
     500: '#2AC1BC',
   },
-  WHITE: {
-    900: '#FFFFFF',
-  },
+
   GRAY: {
     300: '#DDDDDD',
+    400: '#CCCCCC',
+    500: '#BBBBBB',
+    600: '#AAAAAA',
   },
 };
 
