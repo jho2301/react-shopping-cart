@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './states/store';
 import { ErrorBoundary } from 'react-error-boundary';
-import CommonError from './components/ErrorFallback/AppErrorFallback';
+import AppErrorFallback from './components/ErrorFallback/AppErrorFallback';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +14,7 @@ ReactDOM.render(
       <GlobalStyle />
       <BrowserRouter>
         <Provider store={store}>
-          <ErrorBoundary FallbackComponent={CommonError}>
+          <ErrorBoundary FallbackComponent={AppErrorFallback}>
             <App />
           </ErrorBoundary>
         </Provider>

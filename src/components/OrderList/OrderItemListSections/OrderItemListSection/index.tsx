@@ -1,7 +1,10 @@
 import { VFC } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 import { useHistory } from 'react-router';
 import useCart from '../../../../service/hooks/useCart';
 import { OrderedItem, Order } from '../../../../types';
+import ErrorFallbackPopup from '../../../ErrorFallback/ErrorFallbackPopup';
+import ProductListErrorFallback from '../../../ProductList/ErrorFallback';
 import OrderListItem from './OrderListItem';
 import { OrderItemListHeader, OrderList, StyledOrderItemListSection } from './styles';
 

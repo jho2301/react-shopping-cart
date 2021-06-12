@@ -1,6 +1,7 @@
-import { MouseEvent, VFC } from 'react';
+import { MouseEvent, useEffect, VFC } from 'react';
 import useCart from '../../../service/hooks/useCart';
 import { Product } from '../../../types';
+import { HTTPError } from '../../../utils/error';
 import { KRCurrency } from '../../../utils/format';
 import {
   CartIconButton,
@@ -18,13 +19,18 @@ interface Props {
 
 const ProductCard: VFC<Props> = ({ onClick, product }) => {
   const { name, price, imageUrl } = product;
-  const { addItem } = useCart();
+  const { addItem, error } = useCart();
 
   const onClickAddCart = (event: MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
 
     addItem(product);
   };
+
+  useEffect(() => {
+    console.log(error);
+    if (error) throw error;
+  }, [error]);
 
   return (
     <StyledProductCard onClick={onClick} type="vertical" image={imageUrl}>

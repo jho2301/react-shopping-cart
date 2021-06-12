@@ -1,7 +1,7 @@
+import { HTTPError, FetchError } from './../../utils/error';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { CART_ITEM_MIN_QUANTITY } from '../../constants/cart';
-import { NETWORK_ERROR } from '../../constants/error';
 import { cartAction } from '../../states/slices/cart/slice';
 import {
   thunkFetchCartItems,
@@ -26,12 +26,6 @@ const useCart = () => {
     userName,
   ]);
   const history = useHistory();
-
-  useEffect(() => {
-    if (!error) return;
-
-    throw error;
-  }, [error]);
 
   const checkedCartItems = cartItems.filter((item) => item.checked);
 
@@ -80,6 +74,10 @@ const useCart = () => {
     dispatch(cartAction.changeAllItemChecked(checked));
   };
 
+  useEffect(() => {
+    if (error) throw error;
+  }, [error]);
+
   return {
     fetchCartItems,
     addItem,
@@ -92,6 +90,7 @@ const useCart = () => {
     checkedCartItems,
     totalPrice,
     isLoading,
+    error,
   };
 };
 
